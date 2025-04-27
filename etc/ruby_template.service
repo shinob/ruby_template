@@ -1,0 +1,14 @@
+[Unit]
+Description=MyDotenvSample (Sinatra/Puma, Ruby 2.7)
+
+[Service]
+WorkingDirectory=/var/www/ruby_template
+ExecStart=/usr/bin/bundle exec ruby app.rb
+#ExecStart=/usr/bin/bundle exec puma -C config/puma.rb
+Environment=APP_ENV=production
+EnvironmentFile=/var/www/ruby_template/.env.production
+User=shino
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
